@@ -36,6 +36,15 @@ public class Example {
                 return Integer.compare(p1.getAge(), p2.getAge());
                         // Or
                 //return  p1.getAge()-p2.getAge();
+                       //Or
+                // if (p1.getAge() == p2.getAge()) {
+                //     return 0;
+                // } else if (p1.getAge() > p2.getAge()) {
+                //     return 1;
+                // } else {
+                //     return -1;
+                // }
+                      
             }
         };
 
