@@ -30,6 +30,7 @@ public class Example {
         people.add(new Person("Bob", 25));
         people.add(new Person("Charlie", 35));
 
+        //Sorting based on the age
         Comparator < Person > ageComparator = new Comparator < Person > () {
 
             @Override
@@ -42,14 +43,14 @@ public class Example {
                     return -1; //Do not swap the two object
                 }
             }
-                            //OR
+            //OR
             // @Override
             // public int compare(Person p1, Person p2) {
             //     return Integer.compare(p1.getAge(), p2.getAge());
 
             // }
 
-                             //OR
+            //OR
             // @Override
             // public int compare(Person p1, Person p2) {
             //     return  p1.getAge()-p2.getAge();
@@ -59,6 +60,18 @@ public class Example {
         };
 
         Collections.sort(people, ageComparator);
+
+
+        //Sorting based on the name
+        Comparator < Person > nameComparator = new Comparator < Person > () {
+            @Override
+            public int compare(Person p1, Person p2) {
+                return p1.getName().compareTo(p2.getName());
+            }
+
+        };
+
+        Collections.sort(people, nameComparator);
 
         for (Person person: people) {
             System.out.println(person);
