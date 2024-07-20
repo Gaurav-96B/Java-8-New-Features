@@ -33,14 +33,14 @@ public class Example {
         //Sorting based on the age
         Comparator < Person > ageComparator = (p1, p2) - > p1.getAge() - p2.getAge();
         Collections.sort(people, ageComparator);
-                       //OR
+        //OR
         // Collections.sort(people,(p1, p2) -> p1.getAge()-p2.getAge());       
 
 
         //Sorting based on the name
         Comparator < Person > nameComparator = (p1, p2) - > p1.getName().compareTo(p2.getName());
         Collections.sort(people, nameComparator);
-                        // OR
+        // OR
         // Collections.sort(people,(p1, p2) -> p1.getName().compareTo(p2.getName()));
 
         for (Person person: people) {
