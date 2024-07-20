@@ -38,11 +38,11 @@ public class Example {
                 //return  p1.getAge()-p2.getAge();
                        //Or
                 // if (p1.getAge() == p2.getAge()) {
-                //     return 0;
+                //     return 0;  //Do not swap the two object
                 // } else if (p1.getAge() > p2.getAge()) {
-                //     return 1;
+                //     return 1;  //Swap the two object
                 // } else {
-                //     return -1;
+                //     return -1; //Do not swap the two object
                 // }
                       
             }
