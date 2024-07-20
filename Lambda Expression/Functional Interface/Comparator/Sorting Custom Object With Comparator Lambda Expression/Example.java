@@ -29,10 +29,19 @@ public class Example {
         people.add(new Person("Alice", 30));
         people.add(new Person("Bob", 25));
         people.add(new Person("Charlie", 35));
+
+        //Sorting based on the age
         Comparator < Person > ageComparator = (p1, p2) - > p1.getAge() - p2.getAge();
         Collections.sort(people, ageComparator);
-                         // Or
-        // Collections.sort(people,(p1, p2) -> p1.getAge()-p2.getAge());
+                       //OR
+        // Collections.sort(people,(p1, p2) -> p1.getAge()-p2.getAge());       
+
+
+        //Sorting based on the name
+        Comparator < Person > nameComparator = (p1, p2) - > p1.getName().compareTo(p2.getName());
+        Collections.sort(people, nameComparator);
+                        // OR
+        // Collections.sort(people,(p1, p2) -> p1.getName().compareTo(p2.getName()));
 
         for (Person person: people) {
             System.out.println(person);
