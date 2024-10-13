@@ -4,9 +4,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Address {
-    private String street = "789 Pine St";
-    private String city = "Chicago";
-    private String country = "USA";
+    @Value("789 Pine St")
+    private String street;
+    @Value("Chicago")
+    private String city;
+    @Value("USA")
+    private String country;
 
     public Address() {}
 
