@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define the Address bean -->
+    <bean id="address" class="com.example.demo.Address">
+        <property name="street" value="123 Main St"/>
+        <property name="city" value="New York"/>
+        <property name="country" value="USA"/>
+    </bean>
+
+    <!-- Define the Person bean with dependency injection of Address -->
+    <bean id="person" class="com.example.demo.Person">
+        <property name="name" value="John Doe"/>
+        <property name="age" value="30"/>
+        <property name="address" ref="address"/>
+    </bean>
+</beans>
