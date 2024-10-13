@@ -5,8 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
-    private String name = "Alice";
-    private int age = 25;
+    @Value("Alice")
+    private String name;
+    @Value(25)
+    private int age;
 
     @Autowired
     private Address address;  // Automatically inject the Address bean
