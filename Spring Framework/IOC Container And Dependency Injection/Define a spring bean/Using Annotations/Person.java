@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Person {
     @Value("Alice")
     private String name;
-    @Value(25)
+    @Value("25")
     private int age;
 
     @Autowired
