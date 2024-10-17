@@ -1,0 +1,27 @@
+<!-- applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Enable AOP Auto Proxying -->
+    <aop:config>
+        <!-- Define Pointcut Expression -->
+        <aop:pointcut id="serviceMethods" expression="execution(* com.example.service.UserService.*(..))" />
+        
+        <!-- Bind Logging Aspect to the Pointcut -->
+        <aop:aspect id="loggingAspect" ref="loggingAspectBean">
+            <aop:before pointcut-ref="serviceMethods" method="logBefore" />
+            <aop:after pointcut-ref="serviceMethods" method="logAfter" />
+        </aop:aspect>
+    </aop:config>
+
+    <!-- Declare the Service Bean -->
+    <bean id="userService" class="com.example.service.UserService" />
+
+    <!-- Declare the Aspect Bean -->
+    <bean id="loggingAspectBean" class="com.example.aspect.LoggingAspect" />
+</beans>
