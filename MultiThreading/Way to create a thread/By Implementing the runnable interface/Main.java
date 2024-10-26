@@ -11,3 +11,11 @@ public class Main {
         thread.start();
     }
 }
+
+//Using java 8
+public class Main {
+    public static void main(String[] args) {
+        Thread thread = new Thread(() -> System.out.println("Thread is running..."));
+        thread.start();
+    }
+}
