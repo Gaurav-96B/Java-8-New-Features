@@ -73,6 +73,19 @@ public class Main {
         String maxEmployeeSalary = employees.stream().max(Comparator.comparing(Employee::getSalary)).map(name - > name.getName()).get();
         System.out.println(maxEmployeeSalary);
 
+        
+        //Print the employee who has max salary
+        employees.stream().max(Comparator.comparing(e->e.getSalary())).ifPresent(e->System.out.println(employee));
+        OR
+        Employee employee=employees.stream().max(Comparator.comparing(e->e.getSalary())).get();
+        System.out.println(employee);
+
+        
+        //Print the name of the employee who have max Salary
+        String name=employees.stream().max(Comparator.comparing(e->e.getSalary())).map(name1->name1.getName()).get();
+        System.out.println(name);
+
+
       4. // Min() method
         //	----------------------------------------------------------------------------------------------
         //Print the name of the lowest salary employee
