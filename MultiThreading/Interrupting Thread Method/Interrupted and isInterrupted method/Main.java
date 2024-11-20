@@ -1,7 +1,7 @@
 class MyThread extends Thread{
     public void run() {
        System.out.println("A"+" "+Thread.interrupted());
-       System.out.println("Thread interrupted"+" "+Thread.currentThread().interrupted());
+       System.out.println("Thread interrupted"+" "+Thread.currentThread().isInterrupted());
        for(int i=0;i<10;i++){
            try{
            System.out.println(i);
