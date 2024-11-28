@@ -173,6 +173,8 @@ public class Main {
         //Find the First Employee in the List
         Optional < Employee > firstEmployee = employees.stream().findFirst();
         firstEmployee.ifPresent(System.out::println);
+        //OR
+        employees.stream().findFirst().ifPresent(System.out::println);
 
 
      13. // anyMatch() method
