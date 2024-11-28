@@ -125,6 +125,8 @@ public class Main {
         //OR
         double averageAge = employees.stream().mapToInt(Employee::getAge).average().orElse(0);
         System.out.println(averageAge);
+        //OR
+        employees.stream().mapToInt(employee->employee.getAge()).average().ifPresent(System.out::println);
 
     9.   // Collectors class
         //	-------------------------------------------------------------------------------------------------------------
