@@ -7,7 +7,7 @@ public class Main {
         List<String> list = Arrays.asList("A", "B", "C");
 
         // 1. Using LinkedList Constructor
-        Queue<String> queue1 = new LinkedList<>(list);
+        Queue<String> queue1 = new PriorityQueue<>(list);
         System.out.println("Queue (LinkedList): " + queue1);
 
         // 2. Using Collectors.toCollection()
