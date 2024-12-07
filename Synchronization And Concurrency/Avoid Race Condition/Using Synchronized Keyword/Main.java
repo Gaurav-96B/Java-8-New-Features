@@ -1,7 +1,7 @@
 class SharedResource{
     int counter=0;
     
-    public synchronized void increament(){
+    public synchronized void increment(){
         counter++;
     }
     
@@ -15,13 +15,13 @@ class Main {
       
       Thread thread1=new Thread(()->{
          for(int i=0;i<10000;i++){
-          sharedResource.increament();
+          sharedResource.increment();
       }  
       });
       
       Thread thread2=new Thread(()->{
          for(int i=0;i<10000;i++){
-          sharedResource.increament();
+          sharedResource.increment();
       }  
       });
       
