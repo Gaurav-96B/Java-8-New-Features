@@ -1,10 +1,10 @@
 import java.util.*;
-import java.util.stream.Collectors;
 class Student{
     String name;
     int age;
     int salary;
-    public Student(String name,int age, int salary){
+    
+    public Student(String name,int age,int salary){
         this.name=name;
         this.age=age;
         this.salary=salary;
@@ -26,7 +26,7 @@ class Student{
         return age;
     }
     
-    public void setSalary(int salary){
+    public void setSalary(){
         this.salary=salary;
     }
     
@@ -39,88 +39,96 @@ class Student{
     }
 }
 
-class NameComparator implements Comparator<Student>
-{
+class NameComparator implements Comparator<Student>{
     public int compare(Student s1,Student s2){
-       return s1.getName().compareTo(s2.getName());
-        
+        return s1.getName().compareTo(s2.getName());
     }
 }
 
 class AgeComparator implements Comparator<Student>{
-    public int compare(Student s1, Student s2){
-        if(s1==s2){
-            return 0;
-        }
-        else if(s1.getAge()>s2.getAge()){
+    public int compare(Student s1,Student s2){
+        if(s1.getAge()>s2.getAge()){
             return 1;
         }
-        else{
+        else if(s1.getAge()<s2.getAge()){
             return -1;
         }
+        else{
+            return 0;
+        }
+        
+       // or
+        
+      //return s1.getAge()-s2.getAge();
     }
 }
 
-
-
 class Main {
     public static void main(String[] args) {
-      List<Student>listOfStudent=Arrays.asList(
+        List<Student>listOfStudent=Arrays.asList(
           new Student("Saurav",24,10),
       new Student("Yash",26,9),
       new Student("Anurag",27,6));
       
-      //Method1
-       Collections.sort(listOfStudent,new NameComparator());
-       
-       //Method2
-       Collections.sort(listOfStudent,(s1,s2)->s1.getName().compareTo(s2.getName()));
-       Collections.sort(listOfStudent,(s1,s2)->s1.getAge()-s2.getAge());
-       
-       //Method3
-       Collections.sort(listOfStudent,Comparator.comparing(emp->emp.getName()));
-       Collections.sort(listOfStudent,Comparator.comparing(emp->emp.getAge()));
-       
-       //Method4
-       Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
-       Collections.sort(listOfStudent,Comparator.comparing(Student::getAge));
-       
-       //Method1
+      System.out.println("Sort the student using Method:1");
       listOfStudent.sort(new NameComparator());
+      listOfStudent.sort(new AgeComparator());
       
-      //Method2
-      listOfStudent.sort((s1,s2)->s1.getName().compareTo(s2.getName()));
-      listOfStudent.sort((s1,s2)->s1.getAge()-s2.getAge());
+      listOfStudent.forEach(System.out::println);
       
-      //Method3
-      listOfStudent.sort(Comparator.comparing(emp->emp.getName()));
-      listOfStudent.sort(Comparator.comparing(emp->emp.getAge()));
+      System.out.println("Sort the student using Method:2");
+      Collections.sort(listOfStudent,new NameComparator());
+      Collections.sort(listOfStudent,new AgeComparator());
       
-      //Method4
-      listOfStudent.sort(Comparator.comparing(Student::getName));
-      listOfStudent.sort(Comparator.comparing(Student::getAge));
+      listOfStudent.forEach(System.out::println);
       
-      //Using Stream
-      listOfStudent.stream().sorted(Comparator.comparing(emp->emp.getAge())).forEach(System.out::println);
       
-      //Max and min
-     //Print the student  
-      listOfStudent.stream().max(Comparator.comparing(s1->s1.getAge())).ifPresent(s1->System.out.println(s1));
-      //Or
-      Student s4=listOfStudent.stream().max(Comparator.comparing(s1->s1.getAge())).get();
-      System.out.println(s4);
+      System.out.println("Sort the student using Method:3");
+      Collections.sort(listOfStudent,(s1,s2)->s1.getName().compareTo(s2.getName()));
+      Collections.sort(listOfStudent,(s1,s2)->s2.getAge()-s2.getAge());
       
-      //Or
-      //Print name of the employee who have max salary
-      String name=listOfStudent.stream().max(Comparator.comparing(s1->s1.getAge())).map(name1->name1.getName()).get();
-      System.out.println(name);
+      listOfStudent.forEach(System.out::println);
       
-    //   //Calculate the average age of employee
-    //   int verage=listOfStudent.stream().mapToInt(age->age.getAge()).average().orElse(0);
-      
-      System.out.println(listOfStudent);
-      
+      System.out.println("Sort the student using Method:4");
+      Collections.sort(listOfStudent,Comparator.comparing(student->student.getName()));
+      Collections.sort(listOfStudent,Comparator.comparing(student->student.getAge()));
        
-     
-}
+      listOfStudent.forEach(System.out::println);
+      
+      System.out.println("Sort the student based using Method:5");
+      Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
+      Collections.sort(listOfStudent,Comparator.comparing(Student::getAge));
+      
+      listOfStudent.forEach(System.out::println);
+      
+      System.out.println("Sort the student based Method:6");
+      listOfStudent.stream().sorted(Comparator.comparing(emp->emp.getAge())).forEach(System.out::println);
+      listOfStudent.stream().sorted(Comparator.comparing(Student::getName)).forEach(System.out::println);
+      
+      
+      //thenComparing
+      System.out.println("Sort the Student based on the name and if name is same then sort it based on the age and if age is same then sort it based on the salary");
+      Collections.sort(listOfStudent,Comparator.comparing(Student::getName).thenComparing(Student::getAge).thenComparing(Student::getSalary));
+      
+      listOfStudent.forEach(System.out::println);
+      
+      //reverseOrder()
+      //Sort by name in reverse order using reverseOrder()
+       System.out.println("Sort by name in reverse natural order ");
+       Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
+      listOfStudent.forEach(System.out::println);
+      
+      //reversed()
+      //Sort by name in reverse order using reversed()
+       System.out.println("Sort by name in reverse order ");
+       Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
+       listOfStudent.forEach(System.out::println);
+      
+
+      //naturalOrder()
+      //Sort by name in natural order using naturalOrder()
+      System.out.println("Sort by name in naturalOrder ");
+       Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
+      listOfStudent.forEach(System.out::println);
+    }
 }
