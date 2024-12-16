@@ -112,23 +112,26 @@ class Main {
       
       listOfStudent.forEach(System.out::println);
       
-      //reverseOrder()
-      //Sort by name in reverse order using reverseOrder()
+       //reverseOrder()
+       //Sort by name in reverse order using reverseOrder()
        System.out.println("Sort by name in reverse natural order ");
        Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
-      listOfStudent.forEach(System.out::println);
+        
+       listOfStudent.forEach(System.out::println);
       
-      //reversed()
-      //Sort by name in reverse order using reversed()
+       //reversed()
+       //Sort by name in reverse order using reversed()
        System.out.println("Sort by name in reverse order ");
        Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
+        
        listOfStudent.forEach(System.out::println);
       
 
-      //naturalOrder()
-      //Sort by name in natural order using naturalOrder()
-      System.out.println("Sort by name in naturalOrder ");
+       //naturalOrder()
+       //Sort by name in natural order using naturalOrder()
+       System.out.println("Sort by name in naturalOrder ");
        Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
-      listOfStudent.forEach(System.out::println);
+        
+       listOfStudent.forEach(System.out::println);
     }
 }
