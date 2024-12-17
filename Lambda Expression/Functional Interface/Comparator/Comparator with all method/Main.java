@@ -101,37 +101,38 @@ class Main {
       
       listOfStudent.forEach(System.out::println);
       
-      System.out.println("Sort the student based Method:6");
+      System.out.println("Sort the student using Method:6");
       listOfStudent.stream().sorted(Comparator.comparing(emp->emp.getAge())).forEach(System.out::println);
       listOfStudent.stream().sorted(Comparator.comparing(Student::getName)).forEach(System.out::println);
       
       
       //thenComparing
-      System.out.println("Sort the Student based on the name and if name is same then sort it based on the age and if age is same then sort it based on the salary");
+      System.out.println("Sort the student based on the name and if name is same then sort it based on the age and if age is same then sort it based on the salary");
       Collections.sort(listOfStudent,Comparator.comparing(Student::getName).thenComparing(Student::getAge).thenComparing(Student::getSalary));
       
       listOfStudent.forEach(System.out::println);
       
-       //reverseOrder()
-       //Sort by name in reverse order using reverseOrder()
-       System.out.println("Sort by name in reverse natural order ");
-       Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
+      //reverseOrder()
+      //Sort by name in reverse order using reverseOrder()
+      System.out.println("Sort by name in reverse natural order ");
+      Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
         
-       listOfStudent.forEach(System.out::println);
+      listOfStudent.forEach(System.out::println);
       
-       //reversed()
-       //Sort by name in reverse order using reversed()
-       System.out.println("Sort by name in reverse order ");
-       Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
+      //reversed()
+      //Sort by name in reverse order using reversed()
+      System.out.println("Sort by name in reverse order ");
+      Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
         
-       listOfStudent.forEach(System.out::println);
+      listOfStudent.forEach(System.out::println);
       
 
-       //naturalOrder()
-       //Sort by name in natural order using naturalOrder()
-       System.out.println("Sort by name in naturalOrder ");
-       Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
+      //naturalOrder()
+      //Sort by name in natural order using naturalOrder()
+      System.out.println("Sort by name in naturalOrder ");
+      Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
         
-       listOfStudent.forEach(System.out::println);
+      listOfStudent.forEach(System.out::println);
+        
     }
 }
