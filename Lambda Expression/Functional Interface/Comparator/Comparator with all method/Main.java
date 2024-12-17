@@ -48,19 +48,28 @@ class NameComparator implements Comparator<Student>{
 class AgeComparator implements Comparator<Student>{
     public int compare(Student s1,Student s2){
         if(s1.getAge()>s2.getAge()){
-            return 1;
+            return 1; //Swap the two object
         }
         else if(s1.getAge()<s2.getAge()){
-            return -1;
+            return -1; //Do not swap the two object
         }
         else{
-            return 0;
+            return 0; //Do not swap the two object
         }
-        
-       // or
-        
-      //return s1.getAge()-s2.getAge();
     }
+
+        
+     //OR
+    // @Override
+    // public int compare(Student s1,Student s2) {
+    //  return  s1.getAge()-s2.getAge();
+    }   
+        
+    //OR
+    // @Override
+    // public int compare(Student s1,Student s2) {
+    //  return Integer.compare(s1.getAge(), s2.getAge());
+    //}
 }
 
 class Main {
