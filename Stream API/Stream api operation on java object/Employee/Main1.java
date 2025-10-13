@@ -98,6 +98,11 @@ class Main {
         System.out.println("Calculate the total salary of all employee----");
         int sum=employees.stream().mapToInt(salary->salary.getSalary()).sum();
         System.out.println(sum);
+
+        //count()
+        System.out.println("Count the number of employees with a salary greater than 5000 ---------");
+        long count= employees.stream().filter(salary->salary.getSalary()>5000).count();
+        System.out.println(count);
         
         //sorted()
         System.out.println("Sort the employee based on the name in ascending order---------");
@@ -108,11 +113,6 @@ class Main {
          
         System.out.println("Sort employees by department first then by name ---------");
         employees.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(name->name.getName())).forEach(System.out::println);
-       
-       //count()
-        System.out.println("Count the number of employees with a salary greater than 5000 ---------");
-        long count= employees.stream().filter(salary->salary.getSalary()>5000).count();
-        System.out.println(count);
          
         //limit()
         System.out.println("Print first three employee ---------");
