@@ -92,7 +92,7 @@ class Main {
       
       System.out.println("Sort the student using Method:3");
       Collections.sort(listOfStudent,(s1,s2)->s1.getName().compareTo(s2.getName()));
-      Collections.sort(listOfStudent,(s1,s2)->s2.getAge()-s2.getAge());
+      Collections.sort(listOfStudent,(s1,s2)->s1.getAge()-s2.getAge());
       listOfStudent.forEach(System.out::println);
       
       System.out.println("Sort the student using Method:4");
@@ -121,12 +121,17 @@ class Main {
       System.out.println("Sort by name in reverse order ");
       Collections.sort(listOfStudent,Comparator.comparing(Student::getName).reversed());
       listOfStudent.forEach(System.out::println);
-      
+
+      //reverseOrder()
+      //Sort by name in reverse order using reversed()
+      System.out.println("Sort by name in reverse order ");
+      Collections.sort(listOfStudent,Comparator.comparing(Employee::getName, Comparator.reverseOrder()));
+      listOfStudent.forEach(System.out::println);
 
       //naturalOrder()
       //Sort by name in natural order using naturalOrder()
       System.out.println("Sort by name in naturalOrder ");
-      Collections.sort(listOfStudent,Comparator.comparing(Student::getName));
+      Collections.sort(listOfStudent,Comparator.comparing(Employee::getName, Comparator.naturalOrder()));
       listOfStudent.forEach(System.out::println);
         
     }
