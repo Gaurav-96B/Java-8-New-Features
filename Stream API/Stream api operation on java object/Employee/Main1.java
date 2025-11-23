@@ -92,6 +92,11 @@ class Main {
         
         //average() and mapToInt()
         System.out.println("Calculate the average age of all employee----");
+        employees.stream()
+        .map(age->age..getAge()) // Stream<Integer>
+        .mapToInt(Integer::intValue) // Must convert to IntStream
+        .average().ifPresent(System.out::println);
+                                        OR
         employees.stream().mapToInt(age->age.getAge()).average().ifPresent(System.out::println);
         
         //sum()
