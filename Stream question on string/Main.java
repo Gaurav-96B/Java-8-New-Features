@@ -189,9 +189,30 @@ public class StreamQuestionOnString {
 //
 //
 //        //there are two string find the uncommon string from the both
-//        String s2="";
-//        String s4="";
-//
+String s = "hot coffee pot";
+        String s1 = "copper coffee pot";
+
+        List<String> result =
+                Stream.concat(
+                                Arrays.stream(s.split("\\s+")),
+                                Arrays.stream(s1.split("\\s+"))
+                        )
+                        .collect(Collectors.groupingBy(w -> w, Collectors.counting()))
+                        .entrySet().stream()
+                        .filter(e -> e.getValue() > 1)   // appears in both strings
+                        .map(Map.Entry::getKey)
+                        .toList();
+
+        System.out.println(result);
+
+        Set<String> set1 = new HashSet<>(Arrays.asList(s.split("\\s+")));
+        Set<String> set2 = new HashSet<>(Arrays.asList(s1.split("\\s+")));
+
+        Set<String> result1 = set1.stream()
+                .filter(set2::contains)
+                .collect(Collectors.toSet());
+
+        System.out.println(result1);
 
 
 
