@@ -1,5 +1,5 @@
 import java.util.*;
-final class Student{
+public final class Student{
     private final int id;
     private final String name;
     private final List<String>hobbies;
