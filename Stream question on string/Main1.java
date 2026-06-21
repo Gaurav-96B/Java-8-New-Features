@@ -58,6 +58,7 @@ System.out.println(result);
 String reversedWords = Arrays.stream(str.split(" "))
         .map(word -> new StringBuilder(word).reverse())
         .collect(Collectors.joining(" "));
+        
 
 //6. Reverse a String
 String reverse = IntStream.range(0, str.length())
