@@ -139,11 +139,31 @@ boolean anagram =
         str1.chars().sorted().boxed().collect(Collectors.toList())
                 .equals(
         str2.chars().sorted().boxed().collect(Collectors.toList()));
+OR
+Map<Character, Long> map1 = str1.chars()
+        .mapToObj(c -> (char) c)
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()));
+
+Map<Character, Long> map2 = str2.chars()
+        .mapToObj(c -> (char) c)
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()));
+
+boolean anagram = map1.equals(map2);
 
 //15. Count vowels
 long vowels = str.toLowerCase()
         .chars()
         .filter(c -> "aeiou".indexOf(c) != -1)
+        .count();
+OR
+long count = str.toLowerCase()
+        .chars()
+        .filter(c ->
+                "aeiou".contains(String.valueOf((char) c)))
         .count();
 
 //16. Character with highest frequency
