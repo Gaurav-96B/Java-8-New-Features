@@ -121,6 +121,8 @@ OR
 String longestWord = Arrays.stream(sentence.split("\\s+"))
         .max(Comparator.comparingInt(s -> s.length()))
         .orElse("");
+OR
+ Arrays.stream(sentence.split("\\s+")).max(Comparator.comparing(word->word.length())).ifPresent(System.out::println);
 
 //12. Sort words by length
 List<String> sortedByLength = Arrays.stream(sentence.split("\\s+"))
