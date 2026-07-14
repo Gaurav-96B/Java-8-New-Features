@@ -157,6 +157,11 @@ Map<Character, Long> map2 = str2.chars()
 
 boolean anagram = map1.equals(map2);
 
+       
+//Reverse Each word in string
+String result1=Arrays.stream(str.split(" ")).map(word->new StringBuilder(word).reverse().toString()).collect(Collectors.joining(" "));
+
+
 //15. Count vowels
 long vowels = str.toLowerCase()
         .chars()
