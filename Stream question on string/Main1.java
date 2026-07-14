@@ -90,7 +90,7 @@ Map<String, Long> wordCount = Arrays.stream(sentence.split(" "))
                 Collectors.counting()));
 
 //9. Sort string (words)
-String sortedWords = Arrays.stream(sentence.split(" "))
+String sortedWords = Arrays.stream(sentence.split("\\s+"))
         .sorted()
         .collect(Collectors.joining(" "));
 
@@ -114,20 +114,20 @@ String sortedChars = str.chars()
                         .collect(Collectors.joining());
 
 //11. Longest word in a sentence
-String longestWord = Arrays.stream(sentence.split(" "))
+String longestWord = Arrays.stream(sentence.split("\\s+"))
         .max(Comparator.comparingInt(String::length))
         .orElse("");
 OR
-String longestWord = Arrays.stream(sentence.split(" "))
+String longestWord = Arrays.stream(sentence.split("\\s+"))
         .max(Comparator.comparingInt(s -> s.length()))
         .orElse("");
 
 //12. Sort words by length
-List<String> sortedByLength = Arrays.stream(sentence.split(" "))
+List<String> sortedByLength = Arrays.stream(sentence.split("\\s+"))
         .sorted(Comparator.comparingInt(String::length))
         .collect(Collectors.toList());
 OR
-List<String> sortedByLength = Arrays.stream(sentence.split(" "))
+List<String> sortedByLength = Arrays.stream(sentence.split("\\s+"))
         .sorted(Comparator.comparingInt(s -> s.length()))
         .collect(Collectors.toList());
 
