@@ -1,17 +1,26 @@
-class InvalidAgeException extends RuntimeException{
-    public InvalidAgeException(String message){
+class InvalidAgeException extends RuntimeException {
+
+    public InvalidAgeException(String message) {
         super(message);
     }
 }
-class AgeVerification{
-    public void getValidAge(int age){
-        if(age<20){
-            throw new InvalidAgeException("Age is invalid");
+
+public class UncheckedExceptionExample {
+
+    public static void checkAge(int age) {
+        if (age < 18) {
+            throw new InvalidAgeException("Age must be 18 or above");
         }
+
+        System.out.println("Eligible");
     }
-}
-class Main {
+
     public static void main(String[] args) {
-        new AgeVerification().getValidAge(16);
+
+        try {
+            checkAge(15);
+        } catch (InvalidAgeException e) {
+            System.out.println("Caught: " + e.getMessage());
+        }
     }
 }
