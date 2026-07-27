@@ -1,12 +1,13 @@
-/*extends RuntimeException
+/*extends Exception
         ↓
-Unchecked
+Checked
         ↓
 throw exception
         ↓
-catch optional
-throws optional  */
-
+must either:
+catch it
+OR
+declare with throws*/
 
 
 
