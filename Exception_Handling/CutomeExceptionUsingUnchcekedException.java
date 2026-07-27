@@ -8,6 +8,19 @@ catch optional
 throws optional*/
 
 
+/*"Age must be 18 or above"
+        ↓
+InvalidAgeException constructor
+        ↓
+super(message)
+        ↓
+RuntimeException stores message
+        ↓
+e.getMessage()
+        ↓
+"Age must be 18 or above"*/
+
+
 
 class InvalidAgeException extends RuntimeException {
 
