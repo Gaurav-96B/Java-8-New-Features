@@ -1,3 +1,17 @@
+/*extends RuntimeException
+        ↓
+Unchecked
+        ↓
+throw exception
+        ↓
+catch optional
+throws optional  */
+
+
+
+
+
+
 class InvalidAgeException extends Exception {
 
     public InvalidAgeException(String message) {
