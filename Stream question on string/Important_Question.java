@@ -28,7 +28,25 @@
         String s4="Java";
         long count=s4.chars().mapToObj(c->(char)c).filter(c->"aeiouAEIOU".contains(String.valueOf(c))).count();
        System.out.println(count);
-       
+
+      //Sort character
+       String str = "java";
+       String result = str.chars()
+        .sorted()
+        .mapToObj(c -> String.valueOf((char) c))
+        .collect(Collectors.joining());
+       System.out.println(result);
+
+       //Sort word
+      String str = "java spring kafka aws";
+      String result = Arrays.stream(str.split("\\s+"))
+        .sorted()
+        .collect(Collectors.joining(" "));
+      System.out.println(result);
+
+      String result = Arrays.stream(str.split("\\s+"))
+        .sorted(Comparator.reverseOrder())
+        .collect(Collectors.joining(" "));
        
        //Check anagram
        String s1 = "listen";
