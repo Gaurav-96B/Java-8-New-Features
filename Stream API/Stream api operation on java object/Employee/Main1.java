@@ -127,7 +127,9 @@ class Main {
          
         System.out.println("Sort employees by department first then by name ---------");
         employees.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(name->name.getName())).forEach(System.out::println);
-         
+
+         employees.stream().sorted(Comparator.comparing((Employee employee)->employee.getDepartment()).thenComparing(employee->employee.getName())).forEach(System.out::println);
+        
         //limit()
         System.out.println("Print first three employee ---------");
         employees.stream().limit(3).forEach(System.out::println);
