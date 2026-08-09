@@ -68,6 +68,9 @@ class Main {
         System.out.println("Print employee name whose salary is greater than 5000---");
         employees.stream().filter(salary->salary.getSalary()>5000).map(name->name.getName()).forEach(System.out::println);
 
+        /*Given a list of employees, return all employees whose salary is greater than 50,000. Convert each employee’s name to uppercase, 
+        keep the remaining employee details unchanged, sort the result by employee name in ascending order, and return the final list*/
+
          List<Employee> result = employees.stream().filter(employee -> employee.getSalary() > 50000).map(employee -> new Employee(
                         employee.getId(),
                         employee.getName().toUpperCase(),
