@@ -13,5 +13,17 @@ public class Main {
         System.out.println(valid);
 
         System.out.println(PaymentService.MIN_AMOUNT);
+
+Output
+// Validating payment amount
+// Processing card payment: 1000.0
+// Logging payment of: 1000.0
+
+// Logging payment of: 500.0
+
+// Validating payment amount
+// true
+
+// 1.0
     }
 }
